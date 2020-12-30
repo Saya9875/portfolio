@@ -1,7 +1,6 @@
 <header class="container mx-auto flex justify-between items-center">
-  <%= link_to "Ours", root_path, id: "logo" %>
-  <nav>
-    <ul class="">
+  <%= link_to "Ours", root_path %>
+    <ul class="text-green-300">
       <li><%= link_to "Home", root_path %></li>
       <% if user_signed_in? %>
       <div class="relative inline-block text-left">
@@ -27,5 +26,4 @@
         <li><%= link_to "Log in", new_user_session_path %></li>
       <% end %>
     </ul>
-  </nav>
 </header>
