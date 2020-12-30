@@ -10,8 +10,6 @@ gem 'puma', '~> 5.0'
 gem 'sass-rails', '>= 6'
 gem 'faker'
 gem 'will_paginate'
-gem 'bootstrap-will_paginate'
-gem 'bootstrap-sass'
 gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
