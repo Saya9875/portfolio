@@ -5,7 +5,7 @@ class MicropostsController < ApplicationController
     @micropost = current_user.microposts.build(micropost_params)
     @micropost.image.attach(params[:micropost][:image])
     if @micropost.save
-      flash[:success] = "Micropost created!"
+      flash[:success] = "ツイートを送信しました"
       redirect_to root_url
     else
       @feed_items = current_user.feed.where(params[:id])
@@ -16,7 +16,7 @@ class MicropostsController < ApplicationController
   #request.referrerはDELETEリクエストが発行されたページに戻す
   def destroy
     @micropost.destroy
-    flash[:success] = "Micropost deleted"
+    flash[:success] = "ツイートを削除しました"
     redirect_to request.referrer || root_url
   end
 
