@@ -1,11 +1,16 @@
-<p>MyPage  <%= @user.name %></p>
-<%= @user.profile %>
+<div class="pl-48">
+  <p>MyPage</p>
+  <%= avatar_tag @user.display_avatar if @user.avatar.attached? %>
+  <%= @user.name %>
+  <%= @user.profile %>
 
-<div class="grid grid-cols-1">
+  <div class="grid grid-cols-1">
     <% if @user.microposts.any? %>
       <h3>ツイート (<%= @user.microposts.count %>)</h3>
       <ol class="microposts">
         <%= render @microposts %>
       </ol>
     <% end %>
+  </div>
+
 </div>
