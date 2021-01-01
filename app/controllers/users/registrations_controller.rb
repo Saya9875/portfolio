@@ -17,16 +17,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+  end
 
-  # PUT /resource
-  # def update
-  #   super
-  # end
-
+  def update
+    if @user.update(user_params)
+      redirect_to user_path(current_user)
+    else
+      render :edit
+    end
+  end
   # DELETE /resource
   # def destroy
   #   super
@@ -44,8 +44,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def user_params
-    params.require(:user).permit(:name, :profile, :email, :password,
-                                :password_confirmation, :avatar)
+    params.require(:user).permit(:name, :profile, :email, :password, :password_confirmation, :avatar)
   end
 
   # If you have extra params to permit, append them to the sanitizer.

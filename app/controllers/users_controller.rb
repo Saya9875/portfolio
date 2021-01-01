@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    #user.avatar.attach(params[:user][:avatar])
+    #@user.avatar.attach(params[:avatar])
     @microposts = @user.microposts.where(params[:id])
   end
 
