@@ -1,6 +1,6 @@
 <div class="pl-48">
   <p>MyPage</p>
-  <div class="w-32 h-32 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto">
+  <div class="rounded-lg h-64 overflow-hidden">
     <%= image_tag @user.display_avatar if @user.avatar.attached? %>
   </div>
   <div>
