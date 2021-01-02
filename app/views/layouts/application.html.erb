@@ -12,7 +12,6 @@
 
   <body class="bg-purple-300">
     <%= render 'layouts/header' %>
-    <%= render 'layouts/sidebar' %>
     <div class="pl-48">
     <% flash.each do |message_type, message| %>
       <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
