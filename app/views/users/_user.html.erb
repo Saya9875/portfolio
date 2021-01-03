@@ -2,4 +2,7 @@
   <%= link_to image_tag(user.display_avatar), user %>
   <%= link_to user.name, user %>
   <%= link_to user.profile, user %>
+  <% if current_user.admin? %>
+    <%= link_to "delete", user, method: :delete, data: { confirm: "You sure?" } %>
+  <% end %>
 </li>
