@@ -12,7 +12,9 @@
   <section class="stats">
     <%= render 'shared/stats' %>
   </section>
-  <%= render 'follow_form' if user_signed_in? %>
+  <section>
+    <%= render 'follow_form' %>
+  </section>
 </div>
 
 <div class="grid grid-cols-1 px-48">
