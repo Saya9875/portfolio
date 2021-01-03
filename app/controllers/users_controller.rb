@@ -2,11 +2,11 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    #@user.avatar.attach(params[:user][:avatar])
   end
 
   def show
     @user = User.find(params[:id])
-    #@user.avatar.attach(params[:avatar])
     @microposts = @user.microposts.where(params[:id])
   end
 
