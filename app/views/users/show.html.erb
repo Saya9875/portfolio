@@ -18,10 +18,10 @@
 </div>
 
 <div class="py-8 px-12 relative bg-gray-100 flex justify-center">
-    <% if @user.microposts.any? %>
-      <h3>ツイート (<%= @user.microposts.count %>)</h3>
-      <ol class="microposts">
-        <%= render @microposts %>
-      </ol>
-    <% end %>
+  <% if @user.microposts.any? %>
+    <h3>ツイート (<%= @user.microposts.count %>)</h3>
+    <ol class="microposts">
+      <%= render @microposts %>
+    </ol>
+  <% end %>
 </div>
