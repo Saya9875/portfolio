@@ -2,14 +2,14 @@
   <span class="like">
     <% if micropost.iine?(current_user) %>
       <%= form_for(micropost.likes.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
-        <%= button_tag(class: "btn btn-default btn-xs") do %>
-          <%= content_tag :span, "#", class: "glyphicon glyphicon-heart" %>
+        <%= button_tag(class: "text-pink-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1") do %>
+          <%= content_tag :span, "#", class: "fas fa-heart" %>
         <% end %>
       <% end %>
     <% else %>
       <%= form_for(micropost.likes.build, remote: true) do |f| %>
         <div><%= hidden_field_tag :micropost_id, micropost.id %></div>
-        <%= button_tag(class: "btn btn-default btn-xs") do %>
+        <%= button_tag(class: "text-black-500 uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1") do %>
           <%= content_tag :span, "#", class: "fas fa-heart" %>
         <% end %>
       <% end %>
