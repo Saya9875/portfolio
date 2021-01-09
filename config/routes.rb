@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'static_pages#home'
+  get  'users/:id/likes', to: 'users#likes'
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
