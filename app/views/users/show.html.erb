@@ -1,23 +1,29 @@
-<div class="pl-48">
-  <p>MyPage</p>
-  <div class="rounded-lg h-64 overflow-hidden">
-    <%= image_tag @user.display_avatar if @user.avatar.attached? %>
+<div class="flex justify-center">
+<div class="rounded rounded-t-lg overflow-hidden shadow max-w-lg my-2">
+  <%= image_tag("sky.jpg") %>
+    <div class="flex justify-center -mt-8">
+      <%= image_tag @user.display_avatar, class: "rounded-full border-solid border-white border-2 -mt-3" %>
+    </div>
+  <div class="text-center px-3 pb-6 pt-2">
+    <h3 class="text-black text-sm bold font-sans">
+      <%= @user.name %>
+    </h3>
+    <p class="mt-2 font-sans font-light text-grey-dark">
+      <%= @user.profile %>
+    </p>
   </div>
-  <div>
-    <%= @user.name %>
+  <div class="flex justify-center pb-3 text-grey-dark">
+    <section class="text-center mr-3 border-r pr-3">
+      <%= render 'shared/stats' %>
+    </section>
+    <section>
+      <%= render 'follow_form' if user_signed_in? %>
+    </section>
   </div>
-  <div>
-    <%= @user.profile %>
-  </div>
-  <section class="stats">
-    <%= render 'shared/stats' %>
-  </section>
-  <section>
-    <%= render 'follow_form' if user_signed_in? %>
-  </section>
+</div>
 </div>
 
-<div class="py-8 px-12 relative bg-gray-100 flex justify-center">
+<div class="bg-gray-100 flex justify-center">
   <% if @user.microposts.any? %>
     <h3>ツイート (<%= @user.microposts.count %>)</h3>
     <ol class="microposts">
