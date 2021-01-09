@@ -1,7 +1,10 @@
 <figure class="md:flex bg-gray-100 rounded-xl p-8 md:p-0">
   <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
     <li id="micropost-<%= micropost.id %>">
-      <span class="pt-6 md:p-8 text-center space-y-4"><%= link_to micropost.user.name, micropost.user %></span>
+      <span class="pt-6 md:p-8 text-center space-y-4">
+        <%# image_tag @user.display_avatar %>
+        <%= link_to micropost.user.name, micropost.user %>
+      </span>
       <span class="text-lg">
         <%= micropost.content %>
         <%= image_tag micropost.display_image if micropost.image.attached? %>
