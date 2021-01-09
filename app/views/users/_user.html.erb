@@ -1,8 +1,12 @@
 <li>
-  <%= link_to image_tag(user.display_avatar), user %>
-  <%= link_to user.name, user %>
-  <%= link_to user.profile, user %>
+  <div class="pl-48">
+    <%= link_to image_tag(user.display_avatar, class: "rounded-full border-solid border-white border-2 -mt-3"), user %>
+  </div>
+  <div>
+    <%= link_to user.name, user %>
+  </div>
+    <%= link_to user.profile, user %>
   <% if current_user.admin? %>
-    <%= link_to "delete", user, method: :delete, data: { confirm: "You sure?" } %>
+    <%= link_to "削除", user, method: :delete, data: { confirm: "本当にこのユーザーを削除してよろしいですか?" } %>
   <% end %>
 </li>

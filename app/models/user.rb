@@ -22,7 +22,7 @@ class User < ApplicationRecord
 
   # 表示用のリサイズ済み画像を返す
   def display_avatar
-    avatar.variant(resize_to_limit: [200, 300])
+    avatar.variant(resize_to_limit: [300, 300])
   end
 
   # ユーザーをフォローする
