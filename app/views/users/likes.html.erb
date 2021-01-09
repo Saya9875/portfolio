@@ -1,0 +1,12 @@
+  <div class="px-48">
+  <% @likes.each do |like| %>
+    <%= like.micropost.content %>
+    <div class="microposts-index-item">
+      <div class="micropost-left">
+        <%= image_tag like.micropost.user.display_avatar %>
+      </div>
+      <div class="micropost-right">
+      </div>
+    </div>
+  <% end %>
+  </div>

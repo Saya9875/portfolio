@@ -2,7 +2,7 @@ class MicropostsController < ApplicationController
   before_action :correct_user,   only: :destroy
 
   def index
-    @microposts = Micropost.all
+    @microposts = Micropost.all.includes(:user)
   end
 
   def create
