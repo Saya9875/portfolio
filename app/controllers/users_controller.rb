@@ -35,7 +35,8 @@ class UsersController < ApplicationController
   def likes
     @user = User.find_by(id: params[:id])
     @likes = Like.where(user_id: @user.id)
-    @micropost = Micropost.where(params[:micropost_id])
+    @micropost = Micropost.where(params[:id])
+    #@micropost.image.attach(params[:micropost][:image])
   end
   
   private
