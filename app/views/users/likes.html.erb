@@ -1,12 +1,38 @@
-  <div class="px-48">
-  <% @likes.each do |like| %>
-    <%= like.micropost.content %>
-    <div class="microposts-index-item">
-      <div class="micropost-left">
+  <div class="pl-48">
+    <% @likes.each do |like| %>
+      <span class="pt-6 md:p-8 text-center space-y-4">
         <%= image_tag like.micropost.user.display_avatar %>
-      </div>
-      <div class="micropost-right">
-      </div>
-    </div>
-  <% end %>
+        <%= link_to like.micropost.user.name %>
+      </span>
+      <span class="text-lg">
+        <%= like.micropost.content %>
+        <%= image_tag like.micropost.display_image if like.micropost.image.attached? %>
+      </span>
+
+      <% unless like.micropost.user == current_user %>
+        <span class="like">
+          <% if like.micropost.iine?(current_user) %>
+            <%= form_for(like.micropost.likes.find_by(user_id: current_user.id), method: :delete, local: false) do |f| %>
+              <%= button_tag(class: "text-pink-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1") do %>
+                <%= content_tag :span, "#{like.micropost.likes_count}", class: "fas fa-heart" %>
+              <% end %>
+            <% end %>
+          <% else %>
+            <%= form_for(like.micropost.likes.build, local: false) do |f| %>
+              <div><%= hidden_field_tag :micropost_id, @micropost.ids %></div>
+                <%= button_tag(class: "text-black-500 uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1") do %>
+                  <%= content_tag :span, "#{like.micropost.likes_count}", class: "fas fa-heart" %>
+                <% end %>
+            <% end %>
+          <% end %>
+        </span>
+      <% end %>
+
+      <span class="timestamp">
+        Posted <%= time_ago_in_words(like.micropost.created_at) %> ago.
+        <% if current_user %>
+          <%= link_to "delete", like.micropost, method: :delete, data: { confirm: "本当にこのツイートを削除してよろしいですか？" } %>
+        <% end %>
+      </span>
+    <% end %>
   </div>

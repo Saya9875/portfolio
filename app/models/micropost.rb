@@ -13,7 +13,7 @@ class Micropost < ApplicationRecord
   def display_image
     image.variant(resize_to_limit: [400, 500])
   end
-
+                    
   # マイクロポストをいいねする
   def iine(user)
     likes.create(user_id: user.id)
