@@ -1,8 +1,7 @@
-<figure class="md:flex bg-gray-100 rounded-xl p-8 md:p-0">
   <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
     <li id="micropost-<%= micropost.id %>">
       <span class="pt-6 md:p-8 text-center space-y-4">
-        <%= image_tag micropost.user.display_avatar %>
+        <%= image_tag micropost.user.display_avatar, class: "rounded-full h-24 w-24" %>
         <%= link_to micropost.user.name, micropost.user %>
       </span>
       <span class="text-lg">
@@ -18,4 +17,3 @@
       </span>
     </li>
   </div>
-</figure>

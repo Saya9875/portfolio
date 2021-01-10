@@ -1,10 +1,10 @@
   <div class="pl-48">
     <% @likes.each do |like| %>
-      <span class="pt-6 md:p-8 text-center space-y-4">
-        <%= image_tag like.micropost.user.display_avatar %>
+      <span class="">
+        <%= image_tag like.micropost.user.display_avatar, class: "rounded-full h-24 w-24 flex" %>
         <%= link_to like.micropost.user.name %>
       </span>
-      <span class="text-lg">
+      <span class="">
         <%= like.micropost.content %>
         <%= image_tag like.micropost.display_image if like.micropost.image.attached? %>
       </span>
