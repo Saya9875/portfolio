@@ -1,31 +1,31 @@
 <div class="flex">
     <!-- Sidebar -->
     <aside class="fixed bg-purple-800 h-screen py-5 shadow">
-        <div class="hover:bg-gray-600 px-12 py-2 rounded text-2xl text-white">
+        <div class="hover:bg-purple-500 px-12 py-2 rounded text-2xl text-white">
             <%= link_to "Ours", root_path %>    
         </div>
         <div class="flex flex-col text-left">
-            <div class="hover:bg-gray-600 px-12 py-2 rounded text-white">
+            <div class="hover:bg-purple-500 px-12 py-2 rounded text-white">
                 <i class="fa fa-home"></i>
                 <%= link_to "ホーム", root_path %>    
             </div>
-            <div class="hover:bg-gray-600 px-12 py-2 rounded text-white">
+            <div class="hover:bg-purple-500 px-12 py-2 rounded text-white">
                 <i class="fa fa-hashtag"></i>
                 <%= link_to "最新ツイート", microposts_path %>    
             </div>
-            <div class="hover:bg-gray-600 px-12 py-2 rounded text-white">
+            <div class="hover:bg-purple-500 px-12 py-2 rounded text-white">
                 <i class="fa fa-pen"></i>
                 <%= link_to "商品レビュー", root_path %>
             </div>
-            <div class="hover:bg-gray-600 px-12 py-2 rounded text-white">
+            <div class="hover:bg-purple-500 px-12 py-2 rounded text-white">
                 <i class="fa fa-user"></i>
                 <%= link_to "マイページ", user_path(current_user) %>    
             </div>
-            <div class="hover:bg-gray-600 px-12 py-2 rounded text-white">
+            <div class="hover:bg-purple-500 px-12 py-2 rounded text-white">
                 <i class="fa fa-wrench"></i>
                 <%= link_to "設定", edit_user_registration_path %>    
             </div>
-            <div class="hover:bg-gray-600 px-12 py-2 rounded text-white">
+            <div class="hover:bg-purple-500 px-12 py-2 rounded text-white">
                 <i class="fa fa-sign-out-alt"></i>
                 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>    
             </div>

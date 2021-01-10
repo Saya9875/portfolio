@@ -25,7 +25,7 @@
 
 <div class="bg-gray-100 flex justify-center">
   <% if @user.microposts.any? %>
-    <h3>ツイート (<%= @user.microposts.count %>)</h3>
+    <h3><%= @user.microposts.count %>ツイート</h3>
     <ol class="microposts">
       <%= render @microposts %>
     </ol>
