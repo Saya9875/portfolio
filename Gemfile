@@ -19,6 +19,7 @@ gem 'image_processing', '~> 1.2'
 gem 'mini_magick'
 gem 'active_storage_validations'
 gem 'counter_culture'
+gem "aws-sdk-s3", require: false
 # gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
 # Reduces boot times through caching; required in config/boot.rb
