@@ -1,4 +1,4 @@
-  <div class="pl-48">
+  <div class="w-1/2 ml-56">
     <% @likes.each do |like| %>
       <span class="">
         <%= image_tag like.micropost.user.display_avatar, class: "rounded-full h-24 w-24 flex" %>
@@ -30,7 +30,7 @@
 
       <span class="timestamp">
         Posted <%= time_ago_in_words(like.micropost.created_at) %> ago.
-        <% if current_user %>
+        <% if current_user == like.micropost.user %>
           <%= link_to "delete", like.micropost, method: :delete, data: { confirm: "本当にこのツイートを削除してよろしいですか？" } %>
         <% end %>
       </span>
