@@ -1,46 +1,42 @@
-<% if user_signed_in? %>
-  <%= render 'layouts/sidebar' %>
-<% else %>
-  <header class="md:flex md:justify-end md:items-center border-b md:flex md:items-center md:justify-between p-4 pb-0 shadow-lg md:pb-4">
-    <!-- Logo text or image -->
-    <div class="flex items-center justify-between mb-4 md:mb-0">
-      <h1 class="leading-none text-2xl text-grey-darkest">
-        <div class="no-underline text-grey-darkest hover:text-black">
-          <%= link_to "Ours", root_path %>
+<header class="md:flex md:justify-end md:items-center border-b md:flex md:items-center md:justify-between p-4 pb-0 shadow-lg md:pb-4">
+  <!-- Logo text or image -->
+  <div class="flex items-center justify-between mb-4 md:mb-0">
+    <h1 class="leading-none text-2xl text-grey-darkest">
+      <div class="no-underline text-grey-darkest hover:text-black">
+        <%= link_to "Ours", root_path %>
+      </div>
+    </h1>
+    <a class="text-black hover:text-orange md:hidden" href="#">
+      <i class="fa fa-2x fa-bars"></i>
+    </a>
+  </div>
+  <!-- END Logo text or image -->
+
+  <!-- Global navigation -->
+  <nav>
+    <ul class="list-reset md:flex md:items-center">
+      <li class="md:ml-4">
+        <div class="block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0">
+          <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post %>
         </div>
-      </h1>
-      <a class="text-black hover:text-orange md:hidden" href="#">
-        <i class="fa fa-2x fa-bars"></i>
-      </a>
-    </div>
-    <!-- END Logo text or image -->
-  
-    <!-- Global navigation -->
-    <nav>
-      <ul class="list-reset md:flex md:items-center">
-        <li class="md:ml-4">
-          <div class="block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0">
-            <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post %>
-          </div>
-        </li>
-        <li class="md:ml-4">
-          <div class="block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0">
-            <%= link_to "Log in", new_user_session_path %>
-          </div>
-        </li>
-        </li>
-        <li class="md:ml-4">
-          <div class="border-t block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0">
-            <%= link_to "Sign up", new_user_registration_path %>
-          </div>
-        </li>
-        <li class="md:ml-4">
-          <div class="border-t block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0">
-            <%= link_to "Home", root_path %>
-          </div>
-        </li>
-      </ul>
-    </nav>
-    <!-- END Global navigation -->
-  </header>
-<% end %>
+      </li>
+      <li class="md:ml-4">
+        <div class="block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0">
+          <%= link_to "Log in", new_user_session_path %>
+        </div>
+      </li>
+      </li>
+      <li class="md:ml-4">
+        <div class="border-t block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0">
+          <%= link_to "Sign up", new_user_registration_path %>
+        </div>
+      </li>
+      <li class="md:ml-4">
+        <div class="border-t block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0">
+          <%= link_to "Home", root_path %>
+        </div>
+      </li>
+    </ul>
+  </nav>
+  <!-- END Global navigation -->
+</header>

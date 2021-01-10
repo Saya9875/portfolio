@@ -1,8 +1,10 @@
 <div class="w-1/2 ml-56">
   <h3><%= @title %></h3>
+  <div class="mt-10">
   <% if @users.any? %>
-    <ul class="users follow">
+    <ul class="-my-8 divide-y-2 divide-gray-200">
       <%= render @users %>
     </ul>
   <% end %>
+  <div>
 </div>
