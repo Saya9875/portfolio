@@ -1,11 +1,15 @@
 <%= form_with(model: @micropost, local: true) do |f| %>
   <div class="field">
-    <%= f.text_area :content, placeholder: "どんな気分？" %>
+    <%= f.text_area :content, placeholder: "どんな気分？" , class: "h-24 w-1/2" %>
   </div>
-  <div class="flex-auto flex space-x-1 mx-24">
-  <span class="image">
-    <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
-  </span>
-  <%= f.submit "ツイートする", class: "w-40 flex items-center justify-center rounded-md bg-purple-700 hover:bg-purple-500 text-white" %>
+  <div class="inline-flex">
+    <div class="flex-1 mr-20">
+      <%= f.label :image, class: "fas fa-image fa-2x" do %>
+        <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png", class: "hidden" %>
+      <% end %>
+    </div>
+    <div class="flex-1 ml-40">
+      <%= f.submit "ツイート", class: "w-40 flex items-center justify-center rounded-full px-4 py-2 bg-purple-800 hover:bg-purple-500 text-white" %>
+    </div>
   </div>
 <% end %>
