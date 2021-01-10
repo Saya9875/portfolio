@@ -27,19 +27,23 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   protected
 
-  #def user_params
-    #params.require(:user).permit(:name, :profile, :email, :password, :password_confirmation, :avatar)
-  #end
-
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute, :name, :profile, :avatar])
   end
 
-  # If you have extra params to permit, append them to the sanitizer.
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
+
+  def after_update_path_for(resource)
+    user_path(@user.id)
+  end
+
   def configure_account_update_params
     devise_parameter_sanitizer.permit(:account_update, keys: [:attribute, :name, :profile, :avatar])
   end
+
 
   #def after_sign_up_path_for(resource)
     #new_user_session_path
