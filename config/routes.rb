@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
-  resources :microposts,  only: [:index, :create, :destroy]
+  resources :microposts,  only: [:index, :create, :show, :destroy]
   resources :relationships,  only: [:create, :destroy]
   resources :likes, only: [:create, :destroy]
   devise_scope :user do

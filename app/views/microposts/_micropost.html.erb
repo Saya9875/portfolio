@@ -5,7 +5,7 @@
         <%= link_to micropost.user.name, micropost.user %>
       </span>
       <span class="text-lg">
-        <%= micropost.content %>
+        <%= link_to micropost.content, micropost %>
         <%= image_tag micropost.display_image if micropost.image.attached? %>
       </span>
       <%= render "likes/like", micropost: micropost %>
