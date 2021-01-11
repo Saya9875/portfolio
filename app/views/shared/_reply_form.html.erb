@@ -1,0 +1,12 @@
+<%= form_with(model: [@micropost, @reply], method: :post, local: true) do |f| %>
+  <div class="field">
+    <%= f.text_area :reply_content, placeholder: "返信をツイート" , class: "h-24 w-1/2" %>
+      <%# hidden_field_tag :micropost_id, @micropost.id %>
+      <%= f.hidden_field :micropost_id, value:@micropost.id %>
+  </div>
+  <div class="inline-flex">
+    <div class="flex-1 ml-40">
+      <%= f.submit "返信", class: "w-40 flex items-center justify-center rounded-full px-4 py-2 bg-purple-800 hover:bg-purple-500 text-white" %>
+    </div>
+  </div>
+<% end %>

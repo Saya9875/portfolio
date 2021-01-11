@@ -19,6 +19,8 @@ class MicropostsController < ApplicationController
 
   def show
     @micropost = Micropost.find(params[:id])
+    @replies = @micropost.replies
+    @reply = current_user.replies.new
   end
   
 

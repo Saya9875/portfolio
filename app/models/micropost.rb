@@ -2,6 +2,7 @@ class Micropost < ApplicationRecord
   belongs_to :user
   has_many :likes, dependent: :destroy
   has_many :iine_users, through: :likes, source: :user
+  has_many :replies
   has_one_attached :image
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
