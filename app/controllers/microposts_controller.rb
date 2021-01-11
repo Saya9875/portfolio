@@ -17,6 +17,11 @@ class MicropostsController < ApplicationController
     end
   end
 
+  def show
+    @micropost = Micropost.find(params[:id])
+  end
+  
+
   #request.referrerはDELETEリクエストが発行されたページに戻す
   def destroy
     @micropost.destroy
