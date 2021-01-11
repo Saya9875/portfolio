@@ -1,3 +1,11 @@
-<div class="w-1/2 ml-56">
-  <div><%= render @micropost %></div>
+<div class="container pr-10 pl-48">
+  <div class="pt-6 md:p-8 text-center space-y-4">
+    <%= render @micropost %>
+    <%= render 'shared/reply_form' %>
+    <ul class="replies">
+      <% @replies.each do |reply| %>
+        <%= reply.reply_content %>
+      <% end %>
+    </ul>
+  </div>
 </div>
