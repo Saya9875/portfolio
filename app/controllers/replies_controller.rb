@@ -13,9 +13,9 @@ class RepliesController < ApplicationController
   end
 
   def destroy
-    @reply.destroy
+    Reply.find(params[:id]).destroy
     flash[:success] = "返信を削除しました"
-    redirect_back(fallback_location: root_path)
+    redirect_to request.referrer || root_url
   end
 
   private

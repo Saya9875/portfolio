@@ -16,7 +16,7 @@
             <span class="timestamp">
               <%= time_ago_in_words(reply.created_at) %> ago.
               <% if current_user == reply.user %>
-                <%= link_to "削除", reply.micropost, method: :delete, data: { confirm: "本当にこのツイートを削除してよろしいですか？" } %>
+                <%= link_to "削除", micropost_reply_path(@micropost, reply.id), method: :delete, data: { confirm: "本当にこのツイートを削除してよろしいですか？" } %>
               <% end %>
             </span>
           </li>
