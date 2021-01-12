@@ -1,19 +1,33 @@
   <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
     <li id="micropost-<%= micropost.id %>">
       <span class="pt-6 md:p-8 text-center space-y-4">
-        <%= image_tag micropost.user.display_avatar, class: "rounded-full h-24 w-24" %>
+        <%= link_to image_tag(micropost.user.display_avatar, class: "rounded-full h-24 w-24"), micropost.user %>
         <%= link_to micropost.user.name, micropost.user %>
       </span>
       <span class="text-lg">
         <%= link_to micropost.content, micropost %>
         <%= image_tag micropost.display_image if micropost.image.attached? %>
       </span>
-      <%= render "likes/like", micropost: micropost %>
       <span class="timestamp">
         <%= time_ago_in_words(micropost.created_at) %> ago.
-        <% if current_user == micropost.user %>
-          <%= link_to "削除", micropost, method: :delete, data: { confirm: "本当にこのツイートを削除してよろしいですか？" } %>
-        <% end %>
       </span>
+
+      <div class="">
+        <div class="inline-block">
+          <%= link_to micropost do %>
+            <i class="far fa-comment"></i>
+            <%= micropost.replies.count %>
+          <% end %>
+        </div>
+        <div class="inline-block">
+          <%= render "likes/like", micropost: micropost %>
+        </div>
+        <div class="inline-block">
+          <% if current_user == micropost.user %>
+            <%= link_to "削除", micropost, method: :delete, data: { confirm: "本当にこのツイートを削除してよろしいですか？" } %>
+          <% end %>
+        </div>
+      </div>
+
     </li>
   </div>
