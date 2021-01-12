@@ -8,9 +8,14 @@ class RepliesController < ApplicationController
       flash[:success] = "返信を送信しました"
       redirect_back(fallback_location: root_path)
     else
-      flash[:message] = "失敗しました"
       redirect_back(fallback_location: root_path)
     end
+  end
+
+  def destroy
+    Reply.find(params[:id]).destroy
+    flash[:success] = "返信を削除しました"
+    redirect_to request.referrer || root_url
   end
 
   private
