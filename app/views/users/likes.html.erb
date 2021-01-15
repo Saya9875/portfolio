@@ -1,38 +1,40 @@
-  <div class="w-1/2 ml-56">
-    <% @likes.each do |like| %>
-      <span class="">
-        <%= image_tag like.micropost.user.display_avatar, class: "rounded-full h-24 w-24 flex" %>
-        <%= link_to like.micropost.user.name %>
-      </span>
-      <span class="">
-        <%= link_to like.micropost.content, like.micropost %>
-        <%= image_tag like.micropost.display_image if like.micropost.image.attached? %>
-      </span>
+<div class="w-1/2 ml-56">
+  <% @likes.each do |like| %>
+    <li id="like-<%= like.id %>">
+    <span class="">
+      <%= image_tag like.micropost.user.display_avatar, class: "rounded-full h-24 w-24 flex" %>
+      <%= link_to like.micropost.user.name %>
+    </span>
+    <span class="">
+      <%= link_to like.micropost.content, like.micropost %>
+      <%= image_tag like.micropost.display_image if like.micropost.image.attached? %>
+    </span>
 
-      <% unless like.micropost.user == current_user %>
-        <span class="like">
-          <% if like.micropost.iine?(current_user) %>
-            <%= form_for(like.micropost.likes.find_by(user_id: current_user.id), method: :delete, local: false) do |f| %>
-              <%= button_tag(class: "text-pink-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1") do %>
-                <%= content_tag :span, "#{like.micropost.likes_count}", class: "fas fa-heart" %>
-              <% end %>
-            <% end %>
-          <% else %>
-            <%= form_for(like.micropost.likes.build, local: false) do |f| %>
-              <div><%= hidden_field_tag :micropost_id, @micropost.ids %></div>
-                <%= button_tag(class: "text-black-500 uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1") do %>
-                  <%= content_tag :span, "#{like.micropost.likes_count}", class: "fas fa-heart" %>
-                <% end %>
+    <% unless like.micropost.user == current_user %>
+      <span class="like">
+        <% if like.micropost.iine?(current_user) %>
+          <%= form_for(like.micropost.likes.find_by(user_id: current_user.id), method: :delete, local: false) do |f| %>
+            <%= button_tag(class: "text-pink-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1") do %>
+              <%= content_tag :span, "#{like.micropost.likes_count}", class: "fas fa-heart" %>
             <% end %>
           <% end %>
-        </span>
-      <% end %>
-
-      <span class="timestamp">
-        <%= time_ago_in_words(like.micropost.created_at) %> ago.
-        <% if current_user == like.micropost.user %>
-          <%= link_to "delete", like.micropost, method: :delete, data: { confirm: "本当にこのツイートを削除してよろしいですか？" } %>
+        <% else %>
+          <%= form_for(like.micropost.likes.build, local: false) do |f| %>
+            <div><%= hidden_field_tag :micropost_id, @micropost.ids %></div>
+              <%= button_tag(class: "text-black-500 uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1") do %>
+                <%= content_tag :span, "#{like.micropost.likes_count}", class: "fas fa-heart" %>
+              <% end %>
+          <% end %>
         <% end %>
       </span>
     <% end %>
-  </div>
+
+    <span class="timestamp">
+      <%= time_ago_in_words(like.micropost.created_at) %>前
+      <% if current_user == like.micropost.user %>
+        <%= link_to "delete", like.micropost, method: :delete, data: { confirm: "本当にこのツイートを削除してよろしいですか？" } %>
+      <% end %>
+    </span>
+    </li>
+  <% end %>
+</div>
