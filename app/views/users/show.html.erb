@@ -1,3 +1,5 @@
+<%= javascript_pack_tag "like_toggle" %>
+
 <div class="flex justify-center">
 <div class="rounded rounded-t-lg overflow-hidden shadow max-w-sm my-2">
   <%= image_tag("sky.jpg") %>
@@ -30,4 +32,29 @@
       <%= render @microposts %>
     </ol>
   <% end %>
+</div>
+
+
+
+
+
+
+<div class="pt-6 md:p-30 text-center md:text-left space-y-4">
+<ul class="tab-menu flex flex-col sm:flex-row justify-center">
+  <li class="tab-menu__item text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none text-blue-500 border-b-2 font-medium border-blue-500"><span class="tab-trigger js-tab-trigger is-active cursor-pointer" data-id="tab01">タブ1</span></li>
+  <li class="tab-menu__item text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none text-blue-500 border-b-2 font-medium border-blue-500"><span class="tab-trigger js-tab-trigger cursor-pointer" data-id="tab02">タブ2</span></li>
+  <li class="tab-menu__item text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none text-blue-500 border-b-2 font-medium border-blue-500"><span class="tab-trigger js-tab-trigger cursor-pointer" data-id="tab03">タブ3</span></li>
+</ul><!-- .tab-menu -->
+
+<div class="tab-content pt-6 md:p-8 text-center space-y-4">
+  <div class="tab-content__item js-tab-target is-active hidden" id="tab01">
+    <%= render @microposts %>
+  </div><!-- .tab-content__item -->
+  <div class="tab-content__item js-tab-target hidden" id="tab02">
+    <%= render @microposts %>
+  </div><!-- .tab-content__item -->
+  <div class="tab-content__item js-tab-target hidden" id="tab03">
+    <%= render @microposts %>
+  </div><!-- .tab-content__item -->
+</div><!-- .tab-content -->
 </div>
