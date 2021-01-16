@@ -1,5 +1,3 @@
-<%= javascript_pack_tag "like_toggle" %>
-
 <div class="flex justify-center">
 <div class="rounded rounded-t-lg overflow-hidden shadow max-w-sm my-2">
   <%= image_tag("sky.jpg") %>
@@ -25,36 +23,93 @@
 </div>
 </div>
 
-<div class="bg-gray-100 flex justify-center">
-  <% if @user.microposts.any? %>
-    <h3 class="pl-20"><%= @user.microposts.count %>ツイート</h3>
-    <ol class="-my-8 divide-y-2 divide-gray-200">
-      <%= render @microposts %>
-    </ol>
-  <% end %>
+
+
+<div class="w-1/2 ml-56">
+<div class="flex flex-wrap" id="tabs-id">
+  <div class="w-full">
+    <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
+      <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+        <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-white bg-pink-600" onclick="changeAtiveTab(event,'tab-profile')">
+          ツイート <%= @user.microposts.count %>
+        </a>
+      </li>
+      <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+        <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-pink-600 bg-white" onclick="changeAtiveTab(event,'tab-settings')">
+          Settings
+        </a>
+      </li>
+      <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+        <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-pink-600 bg-white" onclick="changeAtiveTab(event,'tab-options')">
+          Options
+        </a>
+      </li>
+    </ul>
+    <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
+      <div class="px-4 py-5 flex-auto">
+        <div class="tab-content tab-space">
+          <div class="block" id="tab-profile">
+            <p>
+              <% if @user.microposts.any? %>
+                <ol class="">
+                  <%= render @microposts %>
+                </ol>
+              <% else %>
+                ツイートはありません。
+              <% end %>
+            </p>
+          </div>
+          <div class="hidden" id="tab-settings">
+            <p>
+              Completely synergize resource taxing relationships via
+              premier niche markets. Professionally cultivate one-to-one
+              customer service with robust ideas.
+              <br />
+              <br />
+              Dynamically innovate resource-leveling customer service for
+              state of the art customer service.
+            </p>
+          </div>
+          <div class="hidden" id="tab-options">
+            <p>
+              Efficiently unleash cross-media information without
+              cross-media value. Quickly maximize timely deliverables for
+              real-time schemas.
+              <br />
+              <br />
+              Dramatically maintain clicks-and-mortar solutions
+              without functional solutions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 
-
-
-
-
-
-<div class="pt-6 md:p-30 text-center md:text-left space-y-4">
-<ul class="tab-menu flex flex-col sm:flex-row justify-center">
-  <li class="tab-menu__item text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none text-blue-500 border-b-2 font-medium border-blue-500"><span class="tab-trigger js-tab-trigger is-active cursor-pointer" data-id="tab01">タブ1</span></li>
-  <li class="tab-menu__item text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none text-blue-500 border-b-2 font-medium border-blue-500"><span class="tab-trigger js-tab-trigger cursor-pointer" data-id="tab02">タブ2</span></li>
-  <li class="tab-menu__item text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none text-blue-500 border-b-2 font-medium border-blue-500"><span class="tab-trigger js-tab-trigger cursor-pointer" data-id="tab03">タブ3</span></li>
-</ul><!-- .tab-menu -->
-
-<div class="tab-content pt-6 md:p-8 text-center space-y-4">
-  <div class="tab-content__item js-tab-target is-active hidden" id="tab01">
-    <%= render @microposts %>
-  </div><!-- .tab-content__item -->
-  <div class="tab-content__item js-tab-target hidden" id="tab02">
-    <%= render @microposts %>
-  </div><!-- .tab-content__item -->
-  <div class="tab-content__item js-tab-target hidden" id="tab03">
-    <%= render @microposts %>
-  </div><!-- .tab-content__item -->
-</div><!-- .tab-content -->
-</div>
+<script type="text/javascript">
+  function changeAtiveTab(event,tabID){
+    let element = event.target;
+    while(element.nodeName !== "A"){
+      element = element.parentNode;
+    }
+    ulElement = element.parentNode.parentNode;
+    aElements = ulElement.querySelectorAll("li > a");
+    tabContents = document.getElementById("tabs-id").querySelectorAll(".tab-content > div");
+    for(let i = 0 ; i < aElements.length; i++){
+      aElements[i].classList.remove("text-white");
+      aElements[i].classList.remove("bg-pink-600");
+      aElements[i].classList.add("text-pink-600");
+      aElements[i].classList.add("bg-white");
+      tabContents[i].classList.add("hidden");
+      tabContents[i].classList.remove("block");
+    }
+    element.classList.remove("text-pink-600");
+    element.classList.remove("bg-white");
+    element.classList.add("text-white");
+    element.classList.add("bg-pink-600");
+    document.getElementById(tabID).classList.remove("hidden");
+    document.getElementById(tabID).classList.add("block");
+  }
+</script>
