@@ -1,3 +1,7 @@
 <span class="w-1/2 ml-56">
+  <%= image_tag item.display_item_image if item.item_image.attached? %>
   <%= item.name %>
+  <% if current_user.admin? %>
+    <%= link_to "削除", item, method: :delete, data: { confirm: "本当にこの商品を削除してよろしいですか？" } %>
+  <% end %>
 </span>

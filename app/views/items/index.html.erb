@@ -2,9 +2,10 @@
   <ol class="">
     <%= render @items %>
   </ol>
-
-<section class="flex justify-center">
-  <%= render 'item_form' %>
-</section>
-
 </div>
+
+<% if current_user.admin? %>
+  <section class="flex justify-center">
+    <%= render 'item_form' %>
+  </section>
+<% end %>

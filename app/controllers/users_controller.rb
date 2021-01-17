@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:index, :show, :destroy, :following, :followers, :likes]
   before_action :admin_user, only: :destroy
 
   def index
@@ -46,8 +45,4 @@ class UsersController < ApplicationController
                                   :password_confirmation, :avatar)
     end
 
-    # 管理者かどうか確認
-    def admin_user
-      redirect_to(root_url) unless current_user.admin?
-    end
 end

@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :admin_user, only: [:new, :create, :destroy]
+  before_action :admin_user, only: [:create, :destroy]
 
   def index
     @items = Item.all
@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = current_user.items.build(item_params)
+    @item.item_image.attach(params[:item][:item_image])
     if @item.save
       redirect_back(fallback_location: root_path)
       flash[:success] = "アイテムが作成されました"
@@ -20,18 +21,15 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item.destroy
-    flash[:success] = "アイテムーを削除しました"
+    Item.find(params[:id]).destroy
+    flash[:success] = "アイテムを削除しました"
     redirect_to items_path
   end
 
   private
 
   def item_params
-    params.require(:item).permit(:name)
+    params.require(:item).permit(:name, :item_image)
   end
 
-  def admin_user
-    redirect_to(root_url) unless current_user.admin?
-  end
 end
