@@ -36,12 +36,12 @@
       </li>
       <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
         <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-pink-600 bg-white" onclick="changeAtiveTab(event,'tab-settings')">
-          Settings
+          いいね <%= @user.likes.count %>
         </a>
       </li>
       <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
         <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-pink-600 bg-white" onclick="changeAtiveTab(event,'tab-options')">
-          Options
+          レビュー
         </a>
       </li>
     </ul>
@@ -61,13 +61,13 @@
           </div>
           <div class="hidden" id="tab-settings">
             <p>
-              Completely synergize resource taxing relationships via
-              premier niche markets. Professionally cultivate one-to-one
-              customer service with robust ideas.
-              <br />
-              <br />
-              Dynamically innovate resource-leveling customer service for
-              state of the art customer service.
+              <% if @user.likes.any? %>
+                <ol class="">
+                  <%= render @likes %>
+                </ol>
+              <% else %>
+                いいねしたツイートはありません。
+              <% end %>
             </p>
           </div>
           <div class="hidden" id="tab-options">

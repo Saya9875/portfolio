@@ -1,0 +1,7 @@
+<% if @user.favorites.any? %>
+  <ol class="">
+    <%= render @microposts %>
+  </ol>
+<% else %>
+  いいねしたツイートはありません。
+<% end %>

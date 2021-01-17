@@ -4,7 +4,7 @@
     <%= render 'shared/reply_form' %>
     <div class="replies">
       <% @replies.each do |reply| %>
-        <li id="reply-<%= reply.id %>">
+        <div id="reply-<%= reply.id %>">
         <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
           <div id="reply-<%= reply.id %>">
             <span class="pt-6 md:p-8 text-center space-y-4">
@@ -22,7 +22,7 @@
             </span>
           </div>
         </div>  
-        </li>    
+        </div>    
       <% end %>
     </div>
   </div>

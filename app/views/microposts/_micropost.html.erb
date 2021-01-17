@@ -1,5 +1,5 @@
   <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
-    <li id="micropost-<%= micropost.id %>">
+    <div id="micropost-<%= micropost.id %>">
       <span class="pt-6 md:p-8 text-center space-y-4">
         <%= link_to image_tag(micropost.user.display_avatar, class: "rounded-full h-24 w-24"), micropost.user %>
         <%= link_to micropost.user.name, micropost.user %>
@@ -19,8 +19,12 @@
             <%= micropost.replies.count %>
           <% end %>
         </div>
-        <div class="inline-block">
-          <%= render "likes/like", micropost: micropost %>
+        <div class="inline-block" id="like_form_<%= micropost.id %>">
+          <% if micropost.liked_by.include?(current_user) %>
+            <%= render "microposts/unlike", micropost: micropost %>
+          <% else %>
+            <%= render "microposts/like", micropost: micropost %>
+          <% end %>
         </div>
         <div class="inline-block">
           <% if current_user == micropost.user %>
@@ -29,5 +33,5 @@
         </div>
       </div>
 
-    </li>
+    </div>
   </div>

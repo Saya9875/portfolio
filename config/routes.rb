@@ -6,14 +6,14 @@ Rails.application.routes.draw do
   }
   resources :users, only: [:index, :show, :destroy] do
     member do
-      get :following, :followers
+      get :following, :followers, :likes
     end
   end
   resources :microposts,  only: [:index, :create, :show, :destroy] do
     resources :replies, only: [:create, :destroy]
   end
   resources :relationships,  only: [:create, :destroy]
-  resources :likes, only: [:create, :destroy]
+  resources :favorite_relationships, only: [:create, :destroy]
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
