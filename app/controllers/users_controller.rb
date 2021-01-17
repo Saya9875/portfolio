@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:index, :show, :destroy, :following, :followers]
+  before_action :authenticate_user!, only: [:index, :show, :destroy, :following, :followers, :likes]
   before_action :admin_user, only: :destroy
 
   def index
@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.where(params[:id])
+    @likes = @user.likes.where(params[:id])
   end
 
   def destroy
@@ -33,9 +34,9 @@ class UsersController < ApplicationController
   end
 
   def likes
-    @user = User.find_by(id: params[:id])
-    @likes = Like.where(user_id: @user.id)
-    @micropost = Micropost.where(params[:id])
+    @user = User.find(params[:id])
+    @microposts = @user.likes.where(params[:id])
+    render 'show'
   end
   
   private

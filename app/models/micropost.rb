@@ -1,7 +1,7 @@
 class Micropost < ApplicationRecord
   belongs_to :user
-  has_many :likes, dependent: :destroy
-  has_many :iine_users, through: :likes, source: :user
+  has_many :favorite_relationships, dependent: :destroy
+  has_many :liked_by, through: :favorite_relationships, source: :user
   has_many :replies
   has_one_attached :image
   default_scope -> { order(created_at: :desc) }
@@ -14,19 +14,5 @@ class Micropost < ApplicationRecord
   def display_image
     image.variant(resize_to_limit: [400, 500])
   end
-                    
-  # マイクロポストをいいねする
-  def iine(user)
-    likes.create(user_id: user.id)
-  end
 
-  # マイクロポストのいいねを解除する
-  def uniine(user)
-    likes.find_by(user_id: user.id).destroy
-  end
-
-  # 現在のユーザーがいいねしてたらtrueを返す
-  def iine?(user)
-    iine_users.include?(user)
-  end
 end
