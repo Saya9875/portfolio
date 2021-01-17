@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root 'static_pages#home'
-  get  'users/:id/likes', to: 'users#likes'
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
@@ -14,6 +13,7 @@ Rails.application.routes.draw do
   end
   resources :relationships,  only: [:create, :destroy]
   resources :favorite_relationships, only: [:create, :destroy]
+  resources :items, only: [:index, :create, :show, :destroy]
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
