@@ -1,0 +1,11 @@
+<%= form_with(model: @item, local: true) do |f| %>
+  <div class="">
+    <%= f.text_field :name, placeholder: "アイテム名入力" , class: "h-24 w-1/2" %>
+  </div>
+  <span class="">
+    <%= f.file_field :item_image, accept: "image/jpeg,image/gif,image/png" %>
+  </span>
+  <div class="flex-1 ml-40">
+    <%= f.submit "作成", class: "w-40 flex items-center justify-center rounded-full px-4 py-2 bg-purple-800 hover:bg-purple-500 text-white" %>
+  </div>
+<% end %>

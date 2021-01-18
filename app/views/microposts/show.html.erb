@@ -8,7 +8,7 @@
         <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
           <div id="reply-<%= reply.id %>">
             <span class="pt-6 md:p-8 text-center space-y-4">
-              <%= image_tag reply.user.display_avatar, class: "rounded-full h-24 w-24" %>
+              <%= image_tag reply.user.display_avatar, class: "rounded-full h-24 w-24 object-cover" %>
               <%= link_to reply.user.name, reply.user %>
             </span>
             <span class="text-lg">

@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :admin_user, only: [:create, :destroy]
+  before_action :admin_user, only: [:create, :edit, :destroy]
 
   def index
     @items = Item.all
@@ -16,6 +16,11 @@ class ItemsController < ApplicationController
       flash[:message] = "失敗しました"
     end
   end
+
+  def edit
+    item = Item.find_by(params[:id])
+  end
+  
 
   def show
   end
