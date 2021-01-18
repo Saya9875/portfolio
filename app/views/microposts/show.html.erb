@@ -4,9 +4,7 @@
     <%= render 'shared/reply_form' %>
     <div class="replies">
       <% @replies.each do |reply| %>
-        <div id="reply-<%= reply.id %>">
         <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
-          <div id="reply-<%= reply.id %>">
             <span class="pt-6 md:p-8 text-center space-y-4">
               <%= image_tag reply.user.display_avatar, class: "rounded-full h-24 w-24 object-cover" %>
               <%= link_to reply.user.name, reply.user %>
@@ -15,13 +13,11 @@
               <%= reply.reply_content %>
             </span>
             <span class="timestamp">
-              <%= time_ago_in_words(reply.created_at) %> ago.
+              <%= time_ago_in_words(reply.created_at) %>
               <% if current_user == reply.user %>
                 <%= link_to "削除", micropost_reply_path(@micropost, reply.id), method: :delete, data: { confirm: "本当にこのツイートを削除してよろしいですか？" } %>
               <% end %>
-            </span>
-          </div>
-        </div>  
+            </span> 
         </div>    
       <% end %>
     </div>
