@@ -45,7 +45,7 @@ class User < ApplicationRecord
   end
 
   def self.guest
-    find_or_create_by!(name: 'ゲストユーザー', email: 'guest@example.com') do |user|
+    find_or_create_by!(name: 'ゲストユーザー', email: 'guest@example.com', profile: 'ゲストユーザーです！よろしくお願いします！') do |user|
       user.password = SecureRandom.urlsafe_base64
       user.avatar.attach(io: File.open(Rails.root.join('app/assets/images/woman.jpg')), filename: 'woman.jpg')
       # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
