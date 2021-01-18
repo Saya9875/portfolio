@@ -120,5 +120,26 @@ user2.like(microposts)
 user3.like(microposts)
 
 #商品
-item = user.items.create!(name: "Nagi")
+item = user.items.create!(name: "Nagi", item_image_name: "Nagi")
 item.item_image.attach(io: File.open(Rails.root.join('app/assets/images/Nagi.jpg')), filename: 'Nagi.jpg')
+
+item2 = user.items.create!(name: "Be-A", item_image_name: "Be-A")
+item2.item_image.attach(io: File.open(Rails.root.join('app/assets/images/Be-A.jpg')), filename: 'Be-A.jpg')
+
+item3 = user.items.create!(name: "Period.", item_image_name: "Period.")
+item3.item_image.attach(io: File.open(Rails.root.join('app/assets/images/period.jpg')), filename: 'period.jpg')
+
+item4 = user.items.create!(name: "MOON PANTS", item_image_name: "MOON PANTS")
+item4.item_image.attach(io: File.open(Rails.root.join('app/assets/images/MOONPANTS.jpg')), filename: 'MOONPANTS.jpg')
+
+item5 = user.items.create!(name: "アミーライナー", item_image_name: "amiee")
+item5.item_image.attach(io: File.open(Rails.root.join('app/assets/images/amiee.png')), filename: 'amiee.png')
+
+item6 = user.items.create!(name: "メルーナ", item_image_name: "melunajapan")
+item6.item_image.attach(io: File.open(Rails.root.join('app/assets/images/melunajapan.jpg')), filename: 'melunajapan.jpg')
+
+item7 = user.items.create!(name: "ローズカップ", item_image_name: "rosecup")
+item7.item_image.attach(io: File.open(Rails.root.join('app/assets/images/rosecup.jpg')), filename: 'rosecup.jpg')
+
+item8 = user.items.create!(name: "Lily cup One", item_image_name: "intimina-japan")
+item8.item_image.attach(io: File.open(Rails.root.join('app/assets/images/intimina.jpeg')), filename: 'intimina.jpeg')
