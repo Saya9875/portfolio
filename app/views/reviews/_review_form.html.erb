@@ -1,0 +1,33 @@
+  <!-- component -->
+<div class="min-h-screen bg-white-300 py-6 flex flex-col justify-center sm:py-12">
+  <div class="py-3 sm:max-w-xl sm:mx-auto">
+  <%= form_with model: review, url: item_reviews_path(item), local: true do |f| %>
+    <div class="bg-white min-w-1xl flex flex-col rounded-xl shadow-lg">
+      <div class="px-12 py-5">
+        <h2 class="tracking-wider text-gray-800 text-2xl font-semibold">感想をレビューしてみよう！</h2>
+      </div>
+      <div class="bg-gray-100 w-full flex flex-col items-center">
+        <div class="flex flex-col items-center py-6 space-y-3">
+          <span class="text-lg text-gray-800">この商品はどうだった？</span>
+          <div class="flex space-x-3">
+            <span class="fa fa-star-o fa-2x" id="star"></span>
+            <span class="fa fa-star-o fa-2x" id="star"></span>
+            <span class="fa fa-star-o fa-2x" id="star"></span>
+            <span class="fa fa-star-o fa-2x" id="star"></span>
+            <span class="fa fa-star-o fa-2x" id="star"></span> 
+          </div>
+          <div class="ml-3 rating-value-display"><span id="rating-value-display">0</span>/5</div>
+          <%= f.hidden_field :item_id, value: item.id %>
+          <%= f.hidden_field :score, id: "rating-value" %>
+        </div>
+        <div class="w-3/4 flex flex-col">
+          <%= f.text_field :review_content, placeholder: "感想を教えて！", class: "p-4 text-gray-500 rounded-xl resize-none h-40" %>
+          <button class="">
+            <%= f.submit "レビューする", class: "py-3 my-8 text-lg bg-gradient-to-r from-purple-500 to-indigo-600 rounded-xl text-white w-full" %>
+          </button>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>

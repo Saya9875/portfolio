@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :replies
   # 管理者が誤って削除された場合アイテムが全て削除されては困るのでdependentはつけない
   has_many :items
+  has_many :reviews, dependent: :destroy
   has_one_attached :avatar
   
   validates :name, presence: true

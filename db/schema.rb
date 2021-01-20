@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_17_063641) do
+ActiveRecord::Schema.define(version: 2021_01_19_131603) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -89,6 +89,17 @@ ActiveRecord::Schema.define(version: 2021_01_17_063641) do
     t.index ["user_id"], name: "index_replies_on_user_id"
   end
 
+  create_table "reviews", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "item_id", null: false
+    t.string "review_content"
+    t.integer "score"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_reviews_on_item_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.text "profile"
@@ -111,4 +122,6 @@ ActiveRecord::Schema.define(version: 2021_01_17_063641) do
   add_foreign_key "microposts", "users"
   add_foreign_key "replies", "microposts"
   add_foreign_key "replies", "users"
+  add_foreign_key "reviews", "items"
+  add_foreign_key "reviews", "users"
 end

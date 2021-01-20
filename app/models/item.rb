@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   belongs_to       :user
+  has_many         :reviews, dependent: :destroy
   has_one_attached :item_image
   validates        :name, presence: true
   validates        :item_image_name, presence: true
