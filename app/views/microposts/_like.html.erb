@@ -1,6 +1,7 @@
 <%= form_for(current_user.favorite_relationships.build) do |f| %>
   <div><%= hidden_field_tag :micropost_id, micropost.id %></div>
-    <%= button_tag(class: "text-black-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1") do %>
-      <%= content_tag :span, micropost.liked_by.count, class: "far fa-heart " %>
+    <%= button_tag(class: "background-transparent uppercase px-6 py-2 outline-none focus:outline-none mr-1 mb-1") do %>
+      <i class="far fa-heart"></i>
+      <%= content_tag :span, micropost.liked_by.count %>
     <% end %>
 <% end %>

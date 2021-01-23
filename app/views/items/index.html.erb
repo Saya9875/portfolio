@@ -13,7 +13,20 @@
                 <%= item.name %>
               </h1>
             <p class="leading-relaxed mb-3">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              <div class="content average-score">
+                <div class="star-rating relative">
+                  <div class="star-rating-front text-yellow-400 absolute overflow-hidden" style="width: <%= item.review_score_percentage %>%">
+                    ★★★★★
+                  </div>
+                  <div class="star-rating-back text-gray-400">
+                    ★★★★★
+                  </div>
+                </div>
+                <div class="average-score-display ml-3 pt-2">
+                  <%= item.avg_score %>点（<%= item.reviews.count %>件のレビュー）
+                </div>
+              </div>
+
               <% if current_user.admin? %>
                 <%= link_to "編集", edit_item_path(item.id) %>
                 <%= link_to "削除", item, method: :delete, data: { confirm: "本当にこの商品を削除してよろしいですか？" } %>
