@@ -1,14 +1,15 @@
 <div class="bg-gray-100 flex justify-center">
-  <div class="container pr-10 pl-48">
-    <aside class="pt-6 md:p-8 text-center space-y-4">
-      <section class="">
-        <%= render 'shared/user_info' %>
-      </section>
-      <section class="micropost_form">
+  <div class="container mx-auto w-1/2">
+    <div class="md:p-8 overflow-hidden mb-10">
+      <div class="float-left pr-20">
+        <div class=""><%= link_to image_tag(current_user.display_avatar, class: "rounded-full  h-24 w-24 object-cover") %></div>
+        <div class="font-bold text-xl pl-6"><%= current_user.name %></div>
+      </div>
+      <div class="float-left">
         <%= render 'shared/micropost_form' %>
-      </section>
-    </aside>
-    <div class="pt-6 md:p-8 text-center space-y-4">
+      </div>
+    </div>
+    <div class="pt-1 md:p-2 text-center space-y-4">
       <%= render 'shared/feed' %>
     </div>
   </div>
