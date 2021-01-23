@@ -1,4 +1,4 @@
-<div class="rating-box min-h-screen bg-white-300 py-6 flex flex-col justify-center sm:py-12">
+<section class="rating-box min-h-screen bg-white-300 py-6 flex flex-col justify-center sm:py-12">
   <div class="py-3 sm:max-w-xl sm:mx-auto">
   <%= form_with model: review, url: item_reviews_path(item), local: true do |f| %>
     <div class="bg-white min-w-1xl flex flex-col rounded-xl shadow-lg">
@@ -31,21 +31,20 @@
     </div>
   <% end %>
   </div>
-</div>
+</section>
 
 
 <script type="text/javascript">
 
   // class = "ratings"の子要素を取得
-const stars = document.querySelector(".ratings").children;
+var stars = document.querySelector(".ratings").children;
 // id = "rating-value"の要素を取得
-const ratingValue = document.getElementById("rating-value");
+var ratingValue = document.getElementById("rating-value");
 // id = "rating-value-display"の要素を取得
-const ratingValueDisplay = document.getElementById("rating-value-display");
+var ratingValueDisplay = document.getElementById("rating-value-display");
 // indexという変数を定義
-let index;
+var index;
 
-// reveiwの投稿ページに遷移するとstars.lengthの値（5）だけ繰り返し
 for(let i=0; i<stars.length; i++){
 	console.log(stars.length)
 	// 星にカーソルが乗ったときに実行する関数を定義
