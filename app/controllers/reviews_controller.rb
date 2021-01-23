@@ -1,10 +1,5 @@
 class ReviewsController < ApplicationController
 
-  def index
-    @item = Item.find(params[:item_id])
-    @reviews = @item.reviews
-  end
-
   def create
     @review = Review.new(review_params)
     @review.user_id = current_user.id
