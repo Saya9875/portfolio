@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user_id = current_user.id
     if @review.save
-      redirect_to item_reviews_path(@review.item)  
+      redirect_back(fallback_location: root_path)  
     else
       @item = Item.find(params[:id])
       render "items/show"
