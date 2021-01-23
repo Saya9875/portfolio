@@ -1,18 +1,23 @@
-<div class="md:p-3 md:text-left">
-  <div class="grid grid-rows-3 grid-flow-col gap-4">
-    <span class="pt-2 md:p-2 row-span-3">
+<div class="md:p-1 md:text-left">
+<div class="flex flex-col">
+  <div class="grid grid-rows-3 grid-flow-col gap-1 py-0">
+    <span class="pt-4 md:p-2 row-span-3">
       <%= link_to image_tag(micropost.user.display_avatar, class: "rounded-full h-24 w-24 object-cover"), micropost.user %>
     </span>
-    <span class="pt-6 font-bold col-span-2">
-      <%= link_to micropost.user.name, micropost.user %>
-      <%= time_ago_in_words(micropost.created_at) %>前
+    <span class="pt-4 col-span-2">
+      <div class="float-left font-bold text-xl">
+        <%= link_to micropost.user.name, micropost.user %>
+      </div>
+      <div class="float-left pl-20 pt-1">
+        <%= time_ago_in_words(micropost.created_at) %>前
+      </div>
     </span>
     <span class="text-lg row-span-2 col-span-2">
       <%= link_to micropost.content, micropost %>
       <%= image_tag micropost.display_image if micropost.image.attached? %>
     </span>
   </div>
-  <div class="flex justify-center">
+  <div class="flex justify-center py-0">
     <div class="">
       <%= link_to micropost do %>
         <i class="far fa-comment"></i>
@@ -31,5 +36,6 @@
         <%= link_to "削除", micropost, method: :delete, data: { confirm: "本当にこのツイートを削除してよろしいですか？" } %>
       <% end %>
     </div>
+  </div>
   </div>
 </div>
