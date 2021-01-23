@@ -1,5 +1,5 @@
 <%= form_for(current_user.favorite_relationships.find_by(micropost_id: micropost.id), method: :delete) do |f| %>
-  <%= button_tag(class: "text-pink-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1") do %>
+  <%= button_tag(class: "text-pink-500 background-transparent font-bold uppercase px-6 py-2 outline-none focus:outline-none mr-1 mb-1") do %>
     <%= content_tag :span, micropost.liked_by.count, class: "fas fa-heart" %>
   <% end %>
 <% end %>
