@@ -1,37 +1,35 @@
-  <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
-    <div id="micropost-<%= micropost.id %>">
-      <span class="pt-6 md:p-8 text-center space-y-4">
-        <%= link_to image_tag(micropost.user.display_avatar, class: "rounded-full h-24 w-24 object-cover"), micropost.user %>
-        <%= link_to micropost.user.name, micropost.user %>
-      </span>
-      <span class="text-lg">
-        <%= link_to micropost.content, micropost %>
-        <%= image_tag micropost.display_image if micropost.image.attached? %>
-      </span>
-      <span class="timestamp">
-        <%= time_ago_in_words(micropost.created_at) %>前
-      </span>
-
-      <div class="">
-        <div class="inline-block">
-          <%= link_to micropost do %>
-            <i class="far fa-comment"></i>
-            <%= micropost.replies.count %>
-          <% end %>
-        </div>
-        <div class="inline-block" id="like_form_<%= micropost.id %>">
-          <% if micropost.liked_by.include?(current_user) %>
-            <%= render "microposts/unlike", micropost: micropost %>
-          <% else %>
-            <%= render "microposts/like", micropost: micropost %>
-          <% end %>
-        </div>
-        <div class="inline-block">
-          <% if current_user == micropost.user %>
-            <%= link_to "削除", micropost, method: :delete, data: { confirm: "本当にこのツイートを削除してよろしいですか？" } %>
-          <% end %>
-        </div>
-      </div>
-
+<div class="md:p-3 md:text-left">
+  <div class="grid grid-rows-3 grid-flow-col gap-4">
+    <span class="pt-2 md:p-2 row-span-3">
+      <%= link_to image_tag(micropost.user.display_avatar, class: "rounded-full h-24 w-24 object-cover"), micropost.user %>
+    </span>
+    <span class="pt-6 font-bold col-span-2">
+      <%= link_to micropost.user.name, micropost.user %>
+      <%= time_ago_in_words(micropost.created_at) %>前
+    </span>
+    <span class="text-lg row-span-2 col-span-2">
+      <%= link_to micropost.content, micropost %>
+      <%= image_tag micropost.display_image if micropost.image.attached? %>
+    </span>
+  </div>
+  <div class="flex justify-center">
+    <div class="">
+      <%= link_to micropost do %>
+        <i class="far fa-comment"></i>
+        <%= micropost.replies.count %>
+      <% end %>
+    </div>
+    <div class="">
+      <% if micropost.liked_by.include?(current_user) %>
+        <%= render "microposts/unlike", micropost: micropost %>
+      <% else %>
+        <%= render "microposts/like", micropost: micropost %>
+      <% end %>
+    </div>
+    <div class="">
+      <% if current_user == micropost.user %>
+        <%= link_to "削除", micropost, method: :delete, data: { confirm: "本当にこのツイートを削除してよろしいですか？" } %>
+      <% end %>
     </div>
   </div>
+</div>

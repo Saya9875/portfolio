@@ -13,17 +13,13 @@
                 <%= item.name %>
               </h1>
               <div class="flex justify-center">
-              <p class="leading-relaxed mb-3 ">
-                <div class="average-score flex">
+              <p class="leading-relaxed mb-3 flex flex-col">
+                <div class="average-score flex flex-col">
                   <div class="star-rating relative text-2xl">
-                    <div class="star-rating-front text-yellow-400 absolute overflow-hidden" style="width: <%= item.review_score_percentage %>%">
-                      ★★★★★
-                    </div>
-                    <div class="star-rating-back text-gray-400">
-                      ★★★★★
-                    </div>
+                    <div class="star-rating-front text-yellow-400 absolute overflow-hidden" style="width: <%= item.review_score_percentage %>%">★★★★★</div>
+                    <div class="star-rating-back text-gray-400">★★★★★</div>
                   </div>
-                  <div class="average-score-display ml-3 pt-2">
+                  <div class="average-score-display pt-2 flex-col">
                     <%= item.avg_score %>点（<%= item.reviews.count %>件のレビュー）
                   </div>
                 </div>

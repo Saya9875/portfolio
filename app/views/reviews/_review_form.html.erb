@@ -1,12 +1,12 @@
-<section class="rating-box min-h-screen bg-white-300 py-6 flex flex-col justify-center sm:py-12">
+<section class="rating-box min-h-screen bg-white-300 flex flex-col sm:py-12">
   <div class="py-3 sm:max-w-xl sm:mx-auto">
   <%= form_with model: review, url: item_reviews_path(item), local: true do |f| %>
     <div class="bg-white min-w-1xl flex flex-col rounded-xl shadow-lg">
-      <div class="px-12 py-5">
+      <div class="px-12 py-3">
         <h2 class="tracking-wider text-gray-800 text-2xl font-semibold">感想をレビューしてみよう！</h2>
       </div>
       <div class="bg-gray-100 w-full flex flex-col items-center">
-        <div class="flex flex-col items-center py-6 space-y-3">
+        <div class="flex flex-col items-center py-3 space-y-3">
           <div class="text-lg text-gray-800">この商品はどうだった？</div>
             <div class="main-rating">
               <div class="flex space-x-3 text-yellow-500 ratings">
