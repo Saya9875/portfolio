@@ -36,15 +36,17 @@
 
 <script type="text/javascript">
 
-  // class = "ratings"の子要素を取得
-var stars = document.querySelector(".ratings").children;
+// class = "ratings"の子要素を取得
+const stars = document.querySelector(".ratings").children;
+// const stars = document.getElementsByClassName("ratings").children;
 // id = "rating-value"の要素を取得
-var ratingValue = document.getElementById("rating-value");
+const ratingValue = document.getElementById("rating-value");
 // id = "rating-value-display"の要素を取得
-var ratingValueDisplay = document.getElementById("rating-value-display");
+const ratingValueDisplay = document.getElementById("rating-value-display");
 // indexという変数を定義
-var index;
+let index;
 
+// reveiwの投稿ページに遷移するとstars.lengthの値（5）だけ繰り返し
 for(let i=0; i<stars.length; i++){
 	console.log(stars.length)
 	// 星にカーソルが乗ったときに実行する関数を定義
@@ -87,5 +89,4 @@ for(let i=0; i<stars.length; i++){
 		}
 	})
 }
-
 </script>
