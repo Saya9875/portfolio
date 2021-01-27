@@ -10,5 +10,5 @@ import "channels"
 import "../css/tailwindcss.css"
 
 Rails.start()
-Turbolinks.start()
+// Turbolinks.start()
 ActiveStorage.start()
