@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @microposts = @user.microposts.where(params[:id])
     @likes = @user.likes.where(params[:id])
+    @reviews = @user.reviews.where(params[:id])
   end
 
   def destroy
