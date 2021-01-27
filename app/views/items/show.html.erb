@@ -38,11 +38,11 @@
   <div class="">
     <%= render 'reviews/review_form', review: @review, item: @item %>
   </div>
-  <div class="inline-block w-full">
-    <% @reviews.each do |review| %>
-        <div><%= review.user.name %></div>
-        <div><%= review.score %></div>
-        <div><%= review.review_content %></div>
+  <div class="w-3/5 ml-56">
+    <% if @reviews.any? %>
+      <ol class="divide-y-2 divide-gray-200">
+        <%= render @reviews %>
+      </ol>
     <% end %>
   </div>
 </div>
