@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'static_pages#home'
+  get  '/map',    to: 'static_pages#map'
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }

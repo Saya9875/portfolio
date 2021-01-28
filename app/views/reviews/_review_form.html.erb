@@ -6,8 +6,7 @@
         <h2 class="tracking-wider text-gray-800 text-2xl font-semibold">感想をレビューしてみよう！</h2>
       </div>
       <div class="bg-gray-100 w-full flex flex-col items-center">
-        <div class="flex flex-col items-center py-3 space-y-3">
-          <div class="text-lg text-gray-800">この商品はどうだった？</div>
+        <div class="py-3">
             <div class="main-rating">
               <div class="flex space-x-3 text-yellow-500 ratings">
                 <span class="fa fa-star-o fa-2x" id="star"></span>
@@ -15,8 +14,8 @@
                 <span class="fa fa-star-o fa-2x" id="star"></span>
                 <span class="fa fa-star-o fa-2x" id="star"></span>
                 <span class="fa fa-star-o fa-2x" id="star"></span> 
-                </div>
-            <div class="ml-3 rating-value-display"><span id="rating-value-display">0</span>/5</div>
+              </div>
+              <div class="ml-3 rating-value-display"><span id="rating-value-display">0</span>/5</div>
             </div>
           <%= f.hidden_field :item_id, value: item.id %>
           <%= f.hidden_field :score, id: "rating-value" %>
