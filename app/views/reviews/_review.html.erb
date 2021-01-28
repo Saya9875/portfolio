@@ -12,41 +12,35 @@
         <%= time_ago_in_words(review.created_at) %>前
       </div>
     </span>
-    <span class="text-lg row-span-2 col-span-2">
-      <%= review.review_content %>
-    </span>
-
-    <div class="flex justify-center">
-      <p class="leading-relaxed mb-3">
-        <div class="average-score flex">
-          <div class="star-rating relative text-2xl">
-            <div class="star-rating-front text-yellow-400 absolute overflow-hidden" style="width: <%= review.review_score %>%">★★★★★</div>
-            <div class="star-rating-back text-gray-400">★★★★★</div>
-          </div>
+    <div class="flex-col">
+      <div class="average-score flex">
+        <div class="star-rating relative text-2xl">
+          <div class="star-rating-front text-yellow-400 absolute overflow-hidden" style="width: <%= review.review_score %>%">★★★★★</div>
+          <div class="star-rating-back text-gray-400">★★★★★</div>
         </div>
-      </p>
+      </div>
+      <div class="text-lg row-span-2 col-span-2">
+        <%= review.review_content %>
+      </div>
     </div>
 
-    <div>
-      <%= image_tag review.item.display_item_image, class: "lg:h-48 md:h-36 w-full object-cover object-center" %>
+    <div class="flex">
+      <div class="flex-1">
+        <%= image_tag review.item.display_item_image, class: "h-20 w-30 object-cover object-center" %>
+      </div>
+      <div class="flex-1">
+        <%= review.item.name %>
+      </div>
+      <div class="average-score flex">
+        <div class="star-rating relative text-2xl">
+          <div class="star-rating-front text-yellow-400 absolute overflow-hidden" style="width: <%= review.item.review_score_percentage %>%">★★★★★</div>
+          <div class="star-rating-back text-gray-400">★★★★★</div>
+        </div>
+        <div class="average-score-display pt-2 flex-col">
+          <%= review.item.avg_score %>点 (<%= review.item.reviews.count %>件）
+        </div>
+      </div>
     </div>
-    <div>
-      <%= review.item.name %>
-    </div>
-    <div class="flex justify-center">
-              <p class="leading-relaxed mb-3">
-                <div class="average-score flex">
-                  <div class="star-rating relative text-2xl">
-                    <div class="star-rating-front text-yellow-400 absolute overflow-hidden" style="width: <%= review.item.review_score_percentage %>%">★★★★★</div>
-                    <div class="star-rating-back text-gray-400">★★★★★</div>
-                  </div>
-                  <div class="average-score-display pt-2 flex-col">
-                    <%= review.item.avg_score %>点 (<%= review.item.reviews.count %>件）
-                  </div>
-                </div>
-              </p>
-              </div>
-
   </div>
   </div>
 </div>

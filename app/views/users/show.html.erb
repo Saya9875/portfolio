@@ -24,7 +24,7 @@
 </div>
 
 
-<div class="mx-56">
+<div class="ml-56">
 <div class="flex justify-center">
 <div class="flex flex-wrap" id="tabs-id">
   <div class="w-full">
@@ -41,7 +41,7 @@
       </li>
       <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
         <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-pink-600 bg-white" onclick="changeAtiveTab(event,'tab-options')">
-          レビュー
+          レビュー <%= @user.reviews.count %>
         </a>
       </li>
     </ul>

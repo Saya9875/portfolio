@@ -11,7 +11,10 @@ class StaticPagesController < ApplicationController
     end
   end
 
-  #private
+  def map
+  end
+  
+    #private
 
     #def user_params
       #params.require(:user).permit(:name, :profile, :email, :password, :password_confirmation, :avatar)
