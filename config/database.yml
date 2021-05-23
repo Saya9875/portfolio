@@ -20,7 +20,7 @@ development:
   database: ours_development
   username: <%= ENV['DATABASE_DEV_USER'] %>
   password: <%= ENV['DATABASE_DEV_PASSWORD'] %>
-  host:     <%= ENV['DATABASE_DEV_HOST'] %>
+  host:     db
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -30,7 +30,7 @@ test:
   database: ours_test
   username: <%= ENV['DATABASE_TES_USER'] %>
   password: <%= ENV['DATABASE_TES_PASSWORD'] %>
-  host:     <%= ENV['DATABASE_TES_HOST'] %>
+  host:     db
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # variable when you boot the app. For example:
